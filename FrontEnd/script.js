@@ -80,37 +80,43 @@ function generateMatrix(){
 function getTriangle(){
     let triangle = getTriangleInputs();
     
-    fetch('https://localhost:7276/coordinates', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type':'application/json; charset=utf-8',
-            'Access-Control-Allow-Origin': '*',
-            'accept': '*/*'
-        },
-        body: JSON.stringify(triangle),
-    }).then((response) => {
-        if(!response.ok){
-            throw new Error('Please enter valid coordinates!');
-        }
-        return response.json();
-    })
-    .then((data) => {
-        clearDisplayTriangle();
-        clearHighlightTriangle();
+    if(checkMatrixStatus() == false){
+        alert("Please generate a matrix first!");
+    } else {        
+        fetch('https://localhost:7276/coordinates', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type':'application/json; charset=utf-8',
+                'Access-Control-Allow-Origin': '*',
+                'accept': '*/*'
+            },
+            body: JSON.stringify(triangle),
+        }).then((response) => {
+            if(!response.ok){
+                throw new Error('Please enter valid coordinates!');
+            }
+            return response.json();
+        })
+        .then((data) => {
+            clearDisplayTriangle();
+            clearHighlightTriangle();
+    
+            if(data.column % 2 == 0){
+                let span1 = document.getElementById("displaySpanA");
+                span1.innerHTML = `${data.row}${data.column} `;
+            } else {
+                let span2 = document.getElementById("displaySpanB");
+                span2.innerHTML = `${data.row}${data.column} `;
+            }   
+            highlightTriangle(data.row, data.column); 
+        })
+        .catch(error => {
+            alert(error);
+        });    
+    }
+    
 
-        if(data.column % 2 == 0){
-            let span1 = document.getElementById("displaySpanA");
-            span1.innerHTML = `${data.row}${data.column} `;
-        } else {
-            let span2 = document.getElementById("displaySpanB");
-            span2.innerHTML = `${data.row}${data.column} `;
-        }   
-        highlightTriangle(data.row, data.column); 
-    })
-    .catch(error => {
-        alert(error);
-    });    
 }
 
 function getTriangleInputs(){
@@ -206,4 +212,14 @@ function fetchTriangle(item){
 
         coordinates.appendChild(responeItem);
     });
+}
+
+function checkMatrixStatus(){
+    let matrix = document.getElementById("matrix1");
+    
+    if(matrix.innerHTML.trim() === ""){
+        return false;
+    } else {
+        return true;
+    }   
 }

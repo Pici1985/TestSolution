@@ -11,6 +11,7 @@ body {
     display: flex;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content:space-between;
+    margin-left: 30px;
 }
 
 #matrix1{
@@ -138,6 +139,10 @@ button:active {
 
 .show-triangle {
     min-width: 400px;
+}
+
+.current-triangle-wrapper{
+    margin-left: 25px;
 }
 
 #currentTriangle{
