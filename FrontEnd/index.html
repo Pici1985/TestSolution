@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>SolutionFrontend</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Triangle - Coordinates Solution</h1>
+
+    <div class="main-wrapper">
+        <div>
+            <h2>Step 1:</h2>
+            <h3>Genarate a matrix:</h3>
+            <div class="input-wrapper">
+                <label for="rows">Rows:</label>
+                <input type="number" id="rows" name="rows" min="1" max="26" placeholder="Max 26">
+            </div>
+            <div class="input-wrapper">
+                <label for="rows">Columns:</label>
+                <input type="number" id="cols" name="cols" min="1" placeholder="Min 1">
+            </div>
+    
+            <button onclick="generateMatrix()">Generate Matrix</button>
+            <button onclick="deleteMatrix()">Delete Matrix</button>
+            
+            <h3>then click on a triangle:</h3>
+        </div>
+        
+        <div>
+            <h2>Step 2:</h2>
+            <h3>Please enter the coordinates of a valid triangle:</h3>
+    
+            <div class="triangle-input-form">
+                <div>
+                    <label>A:</label>
+                    <input type="number" id="Ay" placeholder="y" class="triangle-input">
+                    <input type="number" id="Ax" placeholder="x" class="triangle-input">
+                </div>
+                <div>
+                    <label>B:</label>
+                    <input type="number" id="By" placeholder="y" class="triangle-input">
+                    <input type="number" id="Bx" placeholder="x" class="triangle-input">
+                </div>
+                <div>
+                    <label>C:</label>
+                    <input type="number" id="Cy" placeholder="y" class="triangle-input">
+                    <input type="number" id="Cx" placeholder="x" class="triangle-input">
+                </div>
+    
+            </div>
+
+            <button style="width: 100%;" onclick="getTriangle()">Show Triangle</button>
+    
+        </div>
+
+        <div class="show-triangle">
+            <div class="square">
+                <div class="boxA">
+                    <span class="spanA" id="displaySpanA"></span>
+                </div>
+                <div class="boxB">
+                    <span class="spanB" id="displaySpanB"></span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div>
+        <h2>Current Triangle ID:<span id="currentTriangle"></span></h2>
+        <div id="coordinates">
+
+        </div>
+    </div>
+
+    <div id="matrix1">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

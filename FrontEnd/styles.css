@@ -1,0 +1,165 @@
+/* import poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    background-color: lightgrey;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-wrapper{
+    width: 90vw;
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content:space-between;
+}
+
+#matrix1{
+    /* border: 1px solid black; */
+    margin: 25px;
+}
+
+input {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #66afe9;
+    box-shadow: 0 0 5px #66afe9;
+}
+
+input:hover {
+    border-color: #999;
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+button:hover {
+   background-color: #0056b3;
+}
+  
+button:active {
+    background-color: #004080;
+}
+  
+
+.row {
+    display: flex;
+}
+
+.square {
+    border: 1px solid black;
+    display: grid;
+    width: 60px;
+    height: 60px;
+}
+
+.boxA {
+    position: relative;
+    grid-column: 1;
+    grid-row: 1;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(91, 188, 220);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.boxB {
+    position: relative;
+    grid-column: 1;
+    grid-row: 1;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(111, 229, 84);
+    clip-path: polygon(100% 100%, 0 100%, 0 0);
+}
+
+.spanA {
+    cursor: pointer;
+    font-weight: bolder;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.spanB {
+    cursor: pointer;
+    font-weight: bolder;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+.spanA:hover {
+    font-size: 20px;
+    color: red;
+}
+
+.spanB:hover {
+    font-size: 20px;
+    color: red;
+}
+
+.responseWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+}
+
+.triangle-input-form{
+    display: flex;
+    width: 100px;
+}
+
+.triangle-input{
+    width: 100px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+}
+
+.show-triangle {
+    min-width: 400px;
+}
+
+#currentTriangle{
+    Color: red;
+}
+
+#displaySpanA, #displaySpanB{
+    Color: red;
+}
+
+.current-triangle-span{
+    font-weight: bolder;
+    font-size: 20px;
+    color: red;
+}
+
+.highlight{
+    font-size: 20px;
+    background-color: blue;
+}
+.highlight-alt{
+    background-color: blue;
+}
+
+ 
